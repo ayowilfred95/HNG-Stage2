@@ -35,9 +35,13 @@ func CreatePerson(c *fiber.Ctx) error {
 	}
 
 	// return the person
-	return c.Status(201).JSON(fiber.Map{
-		"result": result,
-	})
+	response := fiber.Map{
+		"name":body.Name,
+		"hobby":body.Hobby,
+		"ID":result.InsertedID,
+	}
+
+	return c.Status(201).JSON(response)
 }
 
 func GetPersons(c *fiber.Ctx) error {
@@ -176,10 +180,15 @@ func UpdatePerson(c *fiber.Ctx) error {
 		})
 	}
 
+
+	// response that display on our test environment
+	response := fiber.Map{
+		"name":body.Name,
+		"hobby":body.Hobby,
+		"result":result,
+	}
 	// return the person
-	return c.Status(200).JSON(fiber.Map{
-		"result": result,
-	})
+	return c.Status(200).JSON(response)
 
 }
 
@@ -223,8 +232,18 @@ func DeletePerson(c *fiber.Ctx) error {
 		})
 	}
 
-	// return the result
-	return c.Status(200).JSON(fiber.Map{
+	// deleted person in response
+	var deletedPerson fiber.Map
+	if result.DeletedCount > 0 {
+		deletedPerson = fiber.Map {
+			"name": userId,
+		}
+	}
+
+	// return the result along with the deleted person's
+	response := fiber.Map{
 		"result": result,
-	})
+		"deleted_person": deletedPerson,
+	}
+	return c.Status(200).JSON(response)
 }

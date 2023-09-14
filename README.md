@@ -52,4 +52,5 @@ These are lists of the available endpoints
 - DELETE /api/{userId} - Delete a person by ID, name, or hobby from the database.
 
 ## UML diagrams link
-
+For visual insights into the project's structure, you can access UML diagrams via this link.
+https://drive.google.com/file/d/1VTAiWQEudXSsaDMKDqBu-V4nGbxzPlvR/view?usp=sharing

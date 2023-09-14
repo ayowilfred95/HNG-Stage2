@@ -126,7 +126,7 @@ This document provides details on how to set up, run, and use the Person API. Th
 curl -X POST -H "Content-Type: application/json" -d '{
   "name": "John Doe",
   "hobby": "Reading"
-}' http://localhost:8000/api/person
+}' http://localhost:8000/api
 
 
 ## Known Limitations
@@ -138,6 +138,10 @@ curl -X POST -H "Content-Type: application/json" -d '{
 - Install postman extension on Vscode 
 - Start the server by running either <go run main.go> or <CompileDaemon -command="go run main.go"> in your terminal
 - Add a new request , starting from POST  and enter the url <localhost:8000/api> 
+
  
  ## Link to Postman Collection
- 
+
+ ### Postman Collection
+
+https://documenter.getpostman.com/view/17644263/2s9YC4VtX9
